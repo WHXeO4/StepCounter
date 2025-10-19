@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/mobile_navigation"
+            app:startDestination="@id/nav_login">
+
+    <fragment
+            android:id="@+id/nav_welcome"
+            android:name="com.WHXeO46.github.stepcounter.ui.welcome.WelcomeFragment"
+            android:label="@string/welcome"
+            tools:layout="@layout/fragment_welcome">
+
+            <action
+                android:id="@+id/action_registered"
+                app:destination="@id/nav_home"
+                app:popUpTo="@id/nav_welcome"
+                app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="com.WHXeO46.github.stepcounter.ui.login.LoginFragment"
+        android:label="@string/login"
+        tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/action_to_welcome"
+            app:destination="@+id/nav_welcome"
+            app:popUpTo="@id/nav_login"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_login_to_home"
+            app:destination="@id/nav_home"
+            app:popUpTo="@id/nav_login"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+            android:id="@+id/nav_home"
+            android:name="com.WHXeO46.github.stepcounter.ui.home.HomeFragment"
+            android:label="@string/menu_home"
+            tools:layout="@layout/fragment_home"/>
+
+    <fragment
+            android:id="@+id/nav_history"
+            android:name="com.WHXeO46.github.stepcounter.ui.history.HistoryFragment"
+            android:label="@string/menu_history"
+            tools:layout="@layout/fragment_history"/>
+
+    <fragment
+            android:id="@+id/nav_account"
+            android:name="com.WHXeO46.github.stepcounter.ui.account.AccountFragment"
+            android:label="@string/menu_account"
+            tools:layout="@layout/fragment_account">
+            <action
+                android:id="@+id/action_nav_account_to_nav_login"
+                app:destination="@id/nav_login"
+                app:popUpTo="@id/mobile_navigation"
+                app:popUpToInclusive="true" />
+    </fragment>
+
+
+</navigation>
